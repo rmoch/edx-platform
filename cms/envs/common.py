@@ -945,3 +945,9 @@ ELASTIC_FIELD_MAPPINGS = {
         "type": "date"
     }
 }
+
+XBLOCK_SETTINGS = {
+    "VideoDescriptor": {
+        "licensing_enabled": FEATURES.get("LICENSING", False)
+    }
+}
