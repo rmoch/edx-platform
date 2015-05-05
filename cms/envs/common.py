@@ -143,6 +143,9 @@ FEATURES = {
     # Toggle course entrance exams feature
     'ENTRANCE_EXAMS': False,
 
+    # Toggle platform-wide course licensing
+    'LICENSING': False,
+
     # Enable the courseware search functionality
     'ENABLE_COURSEWARE_INDEX': False,
 
