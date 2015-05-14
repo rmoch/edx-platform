@@ -96,6 +96,8 @@ define(["js/views/baseview", "underscore"], function(BaseView, _) {
                 "type": licenseType,
                 "options": this.getDefaultOptionsForLicenseType(licenseType)
             });
+	    // Fire the change event manually
+            this.model.trigger("change change:type")
         },
 
         onOptionClick: function(e) {

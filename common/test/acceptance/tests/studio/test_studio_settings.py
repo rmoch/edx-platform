@@ -429,13 +429,13 @@ class ContentLicenseTest(StudioCourseTest):
     def test_empty_license(self):
         """
         When I visit the Studio settings page,
-        I see that the course license is "None" by default.
+        I see that the course license is "All Rights Reserved" by default.
         Then I visit the LMS courseware page,
-        and I see that there is no course license displayed.
+        and I see that the default course license is displayed.
         """
-        self.assertIsNone(self.settings_page.course_license)
+        self.assertEqual(self.settings_page.course_license, "All Rights Reserved")
         self.lms_courseware.visit()
-        self.assertIsNone(self.lms_courseware.course_license)
+        self.assertEqual(self.lms_courseware.course_license, "© All Rights Reserved")
 
     def test_arr_license(self):
         """
@@ -469,4 +469,6 @@ class ContentLicenseTest(StudioCourseTest):
         self.assertEqual(self.settings_page.course_license, "Creative Commons")
 
         self.lms_courseware.visit()
-        self.assertEqual(self.lms_courseware.course_license, "Some Rights Reserved")
+        # The course_license text will include a bunch of screen reader text to explain
+        # the selected options
+        self.assertIn("Some Rights Reserved", self.lms_courseware.course_license)

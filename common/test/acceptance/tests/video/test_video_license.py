@@ -107,4 +107,4 @@ class VideoLicenseTest(StudioCourseTest):
         self.assertTrue(video.is_present())
         video_license = self.lms_courseware.q(css=".vert .xblock.xmodule_VideoModule .xblock-license")
         self.assertTrue(video_license.is_present())
-        self.assertEqual(video_license.text[0], "Some Rights Reserved")
+        self.assertIn("Some Rights Reserved", video_license.text[0])
