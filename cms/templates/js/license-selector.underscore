@@ -42,9 +42,7 @@
                 <% var optionInfo = license.options[optionKey]; %>
                 <% if (optionInfo.type == "boolean") { %>
                     <% var optionSelected = model.options[optionKey]; %>
-                    <% var optionDisabled = optionInfo.disabled ||
-                            (optionInfo.conflictsWith && _.any(optionInfo.conflictsWith, function(key) {return model.options[key];}));
-                    %>
+                    <% var optionDisabled = optionInfo.disabled %>
                     <li data-option="<%- optionKey %>"
                         class="action-item license-option
                                <% if (optionSelected) { print("is-selected"); } %>

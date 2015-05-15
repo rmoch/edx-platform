@@ -119,17 +119,19 @@ define(["js/views/baseview", "underscore"], function(BaseView, _) {
                 licenseOptions[optionKey] = currentOptionValue;
             }
             // check for conflicts
-            if (currentOptionValue && optionInfo.conflictsWith &&
-                    _.any(optionInfo.conflictsWith, function (key) { return licenseOptions[key];})) {
-                // conflict! don't set new options
-                // need some feedback here
-                return;
-            } else {
-                this.model.set({"options": licenseOptions})
-                // Backbone has trouble identifying when objects change, so we'll
-                // fire the change event manually.
-                this.model.trigger("change change:options")
+            if (currentOptionValue && optionInfo.conflictsWith) {
+		var conflicts = optionInfo.conflictsWith;
+		for (var i=0; i<conflicts.length; i++) {
+		    // Uncheck all conflicts
+		    licenseOptions[conflicts[i]] = false;
+		    console.log(licenseOptions);
+		}
             }
+
+            this.model.set({"options": licenseOptions})
+            // Backbone has trouble identifying when objects change, so we'll
+            // fire the change event manually.
+            this.model.trigger("change change:options")
             e.preventDefault();
         }
 
