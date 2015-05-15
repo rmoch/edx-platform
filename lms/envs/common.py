@@ -1784,16 +1784,25 @@ MKTG_URL_LINK_MAP = {
 ################# Social Media Footer Links #######################
 # The names list controls the order of social media
 # links in the footer.
-SOCIAL_MEDIA_FOOTER_NAMES = [
-    "facebook",
-    "twitter",
-    "linkedin",
-    "google_plus",
-    "tumblr",
-    "meetup",
-    "reddit",
-    "youtube",
-]
+if FEATURES.get('ENABLE_FOOTER_V3'):
+    SOCIAL_MEDIA_FOOTER_NAMES = [
+        "facebook",
+        "twitter",
+        "linkedin",
+        "weibo",
+        "vk",
+    ]
+else:
+    SOCIAL_MEDIA_FOOTER_NAMES = [
+        "facebook",
+        "twitter",
+        "linkedin",
+        "google_plus",
+        "tumblr",
+        "meetup",
+        "reddit",
+        "youtube",
+    ]
 
 # The footer URLs dictionary maps social footer names
 # to URLs defined in configuration.
@@ -1843,6 +1852,18 @@ SOCIAL_MEDIA_FOOTER_DISPLAY = {
         # translate this the way that Reddit advertises in your language.
         "title": _("Reddit"),
         "icon": "fa-reddit-square"
+    },
+    "vk": {
+        # Translators: This is the website name of https://vk.com.  Please
+        # translate this the way that VK advertises in your language.
+        "title": _("VK"),
+        "icon": "fa-vk"
+    },
+    "weibo": {
+        # Translators: This is the website name of http://www.weibo.com.  Please
+        # translate this the way that Weibo advertises in your language.
+        "title": _("Weibo"),
+        "icon": "fa-weibo"
     },
     "youtube": {
         # Translators: This is the website name of www.youtube.com.  Please
