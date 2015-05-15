@@ -92,12 +92,17 @@ define(["js/views/baseview", "underscore"], function(BaseView, _) {
         onLicenseClick: function(e) {
             var $li = $(e.srcElement || e.target).closest('li');
             var licenseType = $li.data("license");
-            this.model.set({
-                "type": licenseType,
-                "options": this.getDefaultOptionsForLicenseType(licenseType)
-            });
-	    // Fire the change event manually
-            this.model.trigger("change change:type")
+
+	    // Check that we've selected a different license type than what's currently selected
+	    if (licenseType != this.model.attributes.type) {
+		this.model.set({
+                    "type": licenseType,
+                    "options": this.getDefaultOptionsForLicenseType(licenseType)
+		});
+		// Fire the change event manually
+		this.model.trigger("change change:type")
+	    }
+	    e.preventDefault();
         },
 
         onOptionClick: function(e) {
