@@ -15,5 +15,8 @@ def create_tracking_context(user):
 
 def ecommerce_api_client(user):
     """ Returns an E-Commerce API client setup with authentication for the specified user. """
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.warning(settings.ECOMMERCE_API_URL)
     return EcommerceApiClient(settings.ECOMMERCE_API_URL, settings.ECOMMERCE_API_SIGNING_KEY, user.username,
-                              user.email, tracking_context=create_tracking_context(user))
+                              user.profile.name, user.email, tracking_context=create_tracking_context(user))
