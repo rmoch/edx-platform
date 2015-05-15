@@ -3,7 +3,7 @@
 <%! from django.utils.translation import ugettext as _ %>
 <%namespace name='static' file='static_content.html'/>
 ## WARNING: These files are specific to edx.org and are not used in installations outside of that domain. Open edX users will want to use the file "footer.html" for any changes or overrides.
-<footer id="footer-edx-v3" role="contentinfo" aria-label="Page Footer">
+<footer id="footer-edx-v3" role="contentinfo" aria-label="${_("Page Footer")}">
     <h2 class="sr footer-about-title">${_("About edX")}</h2>
 
     <div class="footer-logo">
@@ -11,7 +11,7 @@
     </div>
 
     <div class="site-details">
-        <nav class="site-nav" aria-label="About edX">
+        <nav class="site-nav" aria-label="${_("About edX")}">
             <a href="${marketing_link('ABOUT')}">${_("About")}</a>
             <a href="${marketing_link('BLOG')}">${_("Blog")}</a>
             <a href="${marketing_link('NEWS')}">${_("News")}</a>
@@ -21,7 +21,7 @@
             <a href="${marketing_link('DONATE')}">${_("Donate")}</a>
             <a href="${marketing_link('DONATE')}">${_("Sitemap")}</a>
         </nav>
-        <nav class="legal-notices" aria-label="Legal">
+        <nav class="legal-notices" aria-label="${_("Legal")}">
             <a href="${marketing_link('TOS')}">${_("Terms of Service &amp; Honor Code")}</a>
             <a href="${marketing_link('PRIVACY')}">${_("Privacy Policy")}</a>
             <a href="${marketing_link('PRIVACY')}">${_("Website Accessibility Policy")}</a>
@@ -88,4 +88,3 @@
 <%block name="js_extra">
     <%static:js group='footer_edx'/>
 </%block>
-
