@@ -406,7 +406,11 @@ class AdvancedSettingsValidationTest(StudioCourseTest):
 
 @attr('shard_1')
 class ContentLicenseTest(StudioCourseTest):
-    def setUp(self):
+    """
+    Tests for course-level licensing (that is, setting the license,
+    for an entire course's content, to All Rights Reserved or Creative Commons)
+    """
+    def setUp(self):  # pylint: disable=arguments-differ
         super(ContentLicenseTest, self).setUp()
         self.outline_page = CourseOutlinePage(
             self.browser,

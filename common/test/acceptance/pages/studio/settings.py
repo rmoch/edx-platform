@@ -81,6 +81,10 @@ class SettingsPage(CoursePage):
 
     @property
     def course_license(self):
+        """
+        Property. Returns the text of the license type for the course
+        ("All Rights Reserved" or "Creative Commons")
+        """
         license_types_css = "section.license ul.license-types li.license-type"
         self.wait_for_element_presence(
             license_types_css,
@@ -99,6 +103,10 @@ class SettingsPage(CoursePage):
 
     @course_license.setter
     def course_license(self, license_name):
+        """
+        Sets the course license to the given license_name
+        (str, "All Rights Reserved" or "Creative Commons")
+        """
         license_types_css = "section.license ul.license-types li.license-type"
         self.wait_for_element_presence(
             license_types_css,
