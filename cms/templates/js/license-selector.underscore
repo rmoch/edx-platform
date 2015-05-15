@@ -97,9 +97,10 @@
                     alt="<%- typeof licenseString == "string" ? licenseString : "" %>"
                     />
             <% } else { %>
-                <i aria-hidden="true" class="icon-cc"></i>
+	        <% //<span> must come before <i> icon or else spacing gets messed up %>
+                <span class="sr">gettext("Creative Commons licensed content, with terms as follow:")&nbsp;</span><i aria-hidden="true" class="icon-cc"></i>
                 <% _.each(enabled, function(option) { %>
-                        <i aria-hidden="true" class="icon-cc-<%- option %>"></i>
+                        <span class="sr"><%- license.options[option.toUpperCase()].name %>&nbsp;</span><i aria-hidden="true" class="icon-cc-<%- option %>"></i>
                 <% }); %>
                 <span class="license-text"><%= gettext("Some Rights Reserved") %></span>
             <% } %>
