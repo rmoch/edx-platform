@@ -1305,7 +1305,7 @@ PIPELINE_CSS = {
         'source_filenames': [
             'sass/footer-edx-rtl.css',
         ],
-        'output_filename': 'css/lms-style-edx-footer.css',
+        'output_filename': 'css/lms-style-edx-footer-rtl.css',
     },
     'style-student-notes': {
         'source_filenames': [
