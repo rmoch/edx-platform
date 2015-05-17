@@ -130,6 +130,12 @@ if STATIC_URL_BASE:
     if not STATIC_URL.endswith("/"):
         STATIC_URL += "/"
 
+# Configure sendfile to use nginx.
+# This uses the X-Accel-Redirect header so nginx
+# will serve the requested file.
+# See https://github.com/johnsensible/django-sendfile for details.
+SENDFILE_BACKEND = "sendfile.backends.nginx"
+
 # MEDIA_ROOT specifies the directory where user-uploaded files are stored.
 MEDIA_ROOT = ENV_TOKENS.get('MEDIA_ROOT', MEDIA_ROOT)
 MEDIA_URL = ENV_TOKENS.get('MEDIA_URL', MEDIA_URL)
